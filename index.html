@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,401;1,7..72,401&display=swap" rel="stylesheet">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro</title>
+<style>
+@font-face {
+  font-family: "Literata";
+  src: url("fonts/Literata-Regular.ttf") format("truetype");
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000; /* سوداء بالكامل */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-container {
+  color: #ffffff;
+  font-family: "Literata", serif;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.fade-overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  opacity:0;
+  transition: opacity 2s ease;
+  z-index:9999;
+}
+</style>
+</head>
+<body
+  <div class="intro-container">
+    <span id="typewriter"></span><span class="cursor">|</span>
+  </div>
+
+<script>
+const text = "Hello world .. Im Zakaria Uday Faisal , and this is my ID";
+const typewriter = document.getElementById("typewriter");
+
+let i = 0;
+
+function typeEffect() {
+  if(i < text.length) {
+    typewriter.textContent += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 80);
+  } else {
+    setTimeout(() => startFade(), 3000);
+  }
+}
+
+function startFade() {
+  const fadeDiv = document.createElement("div");
+  fadeDiv.className = "fade-overlay";
+  document.body.appendChild(fadeDiv);
+
+  setTimeout(() => {
+    fadeDiv.style.opacity = "1";
+  }, 50);
+
+  setTimeout(() => {
+    window.location.href = "intro.html";
+  }, 2050);
+}
+
+window.onload = () => {
+  setTimeout(typeEffect, 100);
+};
+</script>
+</body>
+</html>

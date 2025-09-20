@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zakaria.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .cursor-blink {
+      display: inline-block;
+      width: 10px;
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="cat-one">
+        <img src="images/cat.gif" alt="Cute Cat" class="cat-gif">
+      </div>
+      <div class="cat-two">
+        <img src="images/cat1.gif" alt="Cute Cat" class="cat-gif">
+      </div>
+
+      <div class="form-switch-container">
+        <span class="form-switch-label" id="flickerLabel">click me!</span>
+        <div class="form-switch">
+          <label>
+            <input type="checkbox" id="toggleFlicker" checked>
+            <i></i>
+          </label>
+        </div>
+      </div>
+
+      <img src="images/logo.png" alt="zakaria Logo" class="logo">
+
+      <div class="text-block">
+        <p>> <span class="text-bold">0</span> &nbsp;: &nbsp; zakaria (<span class="text-bold">zakiudy</span>)</p>
+        <p>>&nbsp; <span class="text-bold">1</span> &nbsp;: &nbsp;<span class="text-bold">graphic designer </span> &nbsp; &gt; &nbsp; senior &nbsp; | &nbsp; photographer </p>
+        <p>> <span class="text-bold">2</span> &nbsp;: &nbsp; Al-Karkh &nbsp; District &nbsp; , &nbsp;  <span class="text-bold">Baghdad Governorate &lt; IQ</span> </p>
+        <p>> <span class="text-bold">3</span> &nbsp;: &nbsp; Follow &nbsp; <a href="https://www.instagram.com/by.v" target="_blank"><span class="text-bold instagram-color">Instagram</span></a> </p>
+        <p>> <span class="text-bold">4</span> &nbsp;: &nbsp; Contact &nbsp; <a href="https://t.me/xleex" target="_blank"><span class="text-bold telegram-color">Telegram</span></a> </p>
+        <p>> <span class="text-bold">5</span> &nbsp;: &nbsp; Contact &nbsp; <a href="https://wa.me/9647831752020" target="_blank"><span class="text-bold whatsapp-color">WhatsApp</span></a> </p>
+        <p> > &nbsp <span class="cursor-blink"> |
+        </span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay"></div>
+
+  <script src="js/script.js"></script>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof displayLanguage === 'function') {
+        displayLanguage('en');
+      }
+
+      const label = document.getElementById('flickerLabel');
+      const originalText = 'دوس هنا!';
+      const alternateTexts = ['click me!', 'Cliquez-moi!', '点击我!'];
+      const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*';
+
+      function randomChar() {
+        return chars[Math.floor(Math.random() * chars.length)];
+      }
+
+      function hackerEffect(text, duration = 1000) {
+        return new Promise(resolve => {
+          let iterations = 0;
+          const maxIterations = Math.floor(duration / 50);
+          const interval = setInterval(() => {
+            let display = '';
+            for (let i = 0; i < text.length; i++) {
+              display += Math.random() < 0.5 ? text[i] : randomChar();
+            }
+            label.textContent = display;
+            iterations++;
+            if (iterations >= maxIterations) {
+              clearInterval(interval);
+              resolve();
+            }
+          }, 40);
+        });
+      }
+
+      async function startFlickerCycle() {
+        while (true) {
+          await hackerEffect(originalText, 2000);
+          const alt = alternateTexts[Math.floor(Math.random() * alternateTexts.length)];
+          label.textContent = alt;
+          await new Promise(r => setTimeout(r, 2000));
+          await hackerEffect(originalText, 2000);
+          label.textContent = originalText;
+          await new Promise(r => setTimeout(r, 2000));
+        }
+      }
+
+      startFlickerCycle();
+      // ---------------------------------------------
+    });
+  </script>
+</body>
+</html>
