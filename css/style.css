@@ -301,11 +301,6 @@ body, p, span {
   -webkit-text-stroke: 0.8px #ffffff; /* حد أغمق لإبراز النص */
   text-stroke: 0.8px #ffffff;
 
-  /* Neon Glow ناعم */
-  text-shadow:
-    0 0 5px #ffffff,
-    0 0 40px #ffffff;
-
   /* نبض لطيف للنص */
   animation: neonPulse 2s infinite alternate;
 }
@@ -319,4 +314,5 @@ body, p, span {
   .cat-gif { top: -40px; width: 50px; }
   .form-switch-container { top: -40px; }
 }
+
 
