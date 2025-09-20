@@ -292,44 +292,22 @@ body, p, span {
 .form-switch-label {
   font-weight: 900;
   font-size: 22px;
-  color: #ff6b81; /* لون النص الأساسي أحمر هادئ */
+  color: #000000; /* لون النص الأساسي أحمر هادئ */
   margin-bottom: 8px;
   display: block;
   letter-spacing: 1px;
 
   /* Stroke/حدود */
-  -webkit-text-stroke: 0.8px #ff4757; /* حد أغمق لإبراز النص */
-  text-stroke: 0.8px #ff4757;
+  -webkit-text-stroke: 0.8px #ffffff; /* حد أغمق لإبراز النص */
+  text-stroke: 0.8px #ffffff;
 
   /* Neon Glow ناعم */
   text-shadow:
-    0 0 5px #ff7f9f,
-    0 0 10px #ff6b81,
-    0 0 20px #ff4d6a,
-    0 0 40px #ff3b55;
+    0 0 5px #ffffff,
+    0 0 40px #ffffff;
 
   /* نبض لطيف للنص */
   animation: neonPulse 2s infinite alternate;
-}
-
-/* تأثير النيون الهادئ */
-@keyframes neonPulse {
-  0% {
-    text-shadow:
-      0 0 5px #ff7f9f,
-      0 0 10px #ff6b81,
-      0 0 20px #ff4d6a,
-      0 0 40px #ff3b55;
-    color: #ff6b81;
-  }
-  100% {
-    text-shadow:
-      0 0 10px #ff7f9f,
-      0 0 20px #ff6b81,
-      0 0 40px #ff4d6a,
-      0 0 60px #ff3b55;
-    color: #ff7f9f;
-  }
 }
 
 @media screen and (max-width: 768px) {
