@@ -298,7 +298,7 @@ body, p, span {
   letter-spacing: 1px;
 
   /* Stroke/حدود */
-  -webkit-text-stroke: 0.8px #ffffff; /* حد أغمق لإبراز النص */
+  -webkit-text-stroke: 0.3px #ffffff; /* حد أغمق لإبراز النص */
   text-stroke: 0.8px #ffffff;
 
   /* نبض لطيف للنص */
@@ -314,5 +314,6 @@ body, p, span {
   .cat-gif { top: -40px; width: 50px; }
   .form-switch-container { top: -40px; }
 }
+
 
 
